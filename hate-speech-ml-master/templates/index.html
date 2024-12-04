@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+<!--    <link rel="stylesheet" href="./global.css" />-->
+<!--    <link rel="stylesheet" href="./index.css" />-->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap"
+    />
+  </head>
+<body>
+  <div class="desktop-4">
+    <div class="rectangle-parent">
+
+<!--      <img class="frame-child" alt="" src="./public/rectangle-16@2x.png" />-->
+      <img src=" {{url_for('static',filename='images/rectangle-16@2x.png')}} " alt="" class="frame-child">
+
+
+      <div class="hate-speech-detection-container">
+        <p class="hate-speech">Hate Speech</p>
+        <p class="hate-speech">detection</p>
+      </div>
+    </div>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('detect')}}" method="post">
+     
+      <div class="csi-pce-og-logo-1"></div>
+      <div class="group-parent">
+        <div class="group-wrapper">
+          <div class="group-wrapper">
+            <div class="group-child"></div>
+          </div>
+        </div>
+        <button type="submit" class="analyse">Detect</button>
+      </div>
+      
+     
+      <div class="group-container">
+        <div class="rectangle-group">
+          <div class="group-item"></div>
+          <input type="text" name="Input" placeholder="Type something" required="required"  class="enter-the-text"/>
+        </div>
+        <div class="no-hate-speech">{{ Output }}</div>
+      </div>
+      
+    </form>
+
+<!--    <img class="desktop-4-child" alt="" src="./public/ellipse-2@2x.png" />-->
+    <img src=" {{url_for('static',filename='images/ellipse-2@2x.png')}} " alt="" class="desktop-4-child">
+
+  </div>
+
+
+</body>
+
+</html>
